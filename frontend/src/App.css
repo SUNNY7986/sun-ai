@@ -1,0 +1,404 @@
+/* ===========================
+   Global
+=========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0f172a;
+    color: #f8fafc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 30px 0;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 38px;
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #cbd5e1;
+    font-size: 17px;
+}
+
+/* ===========================
+   Cards
+=========================== */
+
+.card {
+    background: #1e293b;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #38bdf8;
+}
+
+/* ===========================
+   Inputs
+=========================== */
+
+input[type="file"] {
+    width: 100%;
+    margin: 15px 0;
+    color: white;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #334155;
+    color: white;
+}
+
+select {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #334155;
+    color: white;
+    min-width: 180px;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .3s;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+/* ===========================
+   Dashboard
+=========================== */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 20px;
+}
+
+.box {
+    background: #334155;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.box h3 {
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.box p {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* ===========================
+   Search & Filter
+=========================== */
+
+.search-filter {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    flex: 1;
+}
+
+.filter-box {
+    width: 220px;
+}
+/* ===========================
+   History Table
+=========================== */
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.history-table th {
+    background: #2563eb;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+.history-table td {
+    padding: 14px;
+    border-bottom: 1px solid #475569;
+}
+
+.history-table tr:nth-child(even) {
+    background: #273549;
+}
+
+.history-table tr:hover {
+    background: #334155;
+}
+
+/* ===========================
+   Risk Badges
+=========================== */
+
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+.badge.high {
+    background: #dc2626;
+}
+
+.badge.medium {
+    background: #eab308;
+    color: #111827;
+}
+
+.badge.low {
+    background: #16a34a;
+}
+
+/* ===========================
+   Action Buttons
+=========================== */
+
+.download-btn {
+    background: #0ea5e9;
+    color: white;
+}
+
+.download-btn:hover {
+    background: #0284c7;
+}
+
+.delete-btn {
+    background: #dc2626;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+}
+
+/* ===========================
+   Analysis Result
+=========================== */
+
+.card p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* ===========================
+   Charts
+=========================== */
+
+.recharts-wrapper {
+    margin: auto;
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 900px) {
+
+    .search-filter {
+        flex-direction: column;
+    }
+
+    .search-box,
+    .filter-box {
+        width: 100%;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .history-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .header h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 98%;
+        padding: 15px 0;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .header h1 {
+        font-size: 26px;
+    }
+
+    .header p {
+        font-size: 15px;
+    }
+}
+
+
+/* ===== Enhanced UI ===== */
+
+.card{
+    border:1px solid rgba(56,189,248,.12);
+    transition:transform .25s ease, box-shadow .25s ease;
+}
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 28px rgba(0,0,0,.35);
+}
+
+button{
+    font-weight:600;
+    letter-spacing:.2px;
+}
+button:hover{
+    transform:translateY(-1px);
+}
+
+.box{
+    transition:all .25s ease;
+    border:1px solid rgba(255,255,255,.05);
+}
+.box:hover{
+    transform:translateY(-3px);
+    background:#3b4b63;
+}
+
+.history-table th{
+    position:sticky;
+    top:0;
+    z-index:1;
+}
+
+.history-table td{
+    vertical-align:middle;
+}
+
+.card ul{
+    margin:10px 0 0 20px;
+}
+
+.card li{
+    margin:8px 0;
+    line-height:1.5;
+}
+
+input[type="file"],
+input[type="text"],
+select{
+    transition:.25s ease;
+}
+
+input[type="text"]:focus,
+select:focus{
+    outline:2px solid #38bdf8;
+    background:#3b4b63;
+}
+
+.download-btn,
+.delete-btn{
+    min-width:100px;
+}
+
+@media (max-width:768px){
+    .history-table button{
+        width:auto;
+    }
+}

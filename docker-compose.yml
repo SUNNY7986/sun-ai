@@ -1,0 +1,44 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: sunai_backend
+
+    env_file:
+      - .env
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./backend:/app
+
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
+    container_name: sunai_frontend
+
+    ports:
+      - "5173:5173"
+
+    depends_on:
+      backend:
+        condition: service_started
+
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+    command: npm run dev -- --host 0.0.0.0
+
+    stdin_open: true
+    tty: true
+
+    restart: unless-stopped
