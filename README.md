@@ -11,7 +11,7 @@
     Security logs often contain large amounts of information that can be difficult to investigate manually.
 
     SUN AI takes a security log and turns it into a structured security analysis.
-    ```text
+    
     Security Log
         ↓
     Log Upload
@@ -51,40 +51,42 @@
 
 SUN AI processes security logs through a multi-stage analysis pipeline.
 
+<div align="center">
 
-            Security Log
-                │
-                ▼
-        ┌───────────────┐
-        │ Log Processing│
-        └───────┬───────┘
-                │
-                ▼
-    ┌─────────────────────┐
-    │Threat Classification│
-    └──────────┬──────────┘
-               │
-               ▼
-        ┌──────────────┐
-        │RAG Retrieval │
-        └───────┬──────┘
-                │
-                ▼
-        ┌──────────────┐
-        │  AI Analysis │
-        └───────┬──────┘
-                │
-         ┌──────┴──────┐
-         ▼             ▼
-    Risk Analysis   Severity Model
-         │             │
-         └──────┬──────┘
-                ▼
-         Recommendations
-                │
-                ▼
-          Final Analysis
+<pre>
+                    Security Log
+                         ↓
+                 ┌───────────────┐
+                 │  Log Upload   │
+                 └───────────────┘
+                         ↓
+                 ┌───────────────┐
+                 │ Log Processing│
+                 └───────────────┘
+                         ↓
+              ┌─────────────────────┐
+              │ Threat Classification│
+              └─────────────────────┘
+                         ↓
+                 ┌───────────────┐
+                 │ RAG Retrieval │
+                 └───────────────┘
+                         ↓
+                 ┌───────────────┐
+                 │  AI Analysis  │
+                 └───────────────┘
+                         ↓
+                 ┌───────────────┐
+                 │ Risk Analysis │
+                 └───────────────┘
+                         ↓
+                 ┌───────────────┐
+                 │ PDF Security  │
+                 │    Report     │
+                 └───────────────┘
+</pre>
 
+</div>
 The backend contains separate components for threat classification, security analysis, severity assessment, risk scoring, recommendations, reporting, embeddings, RAG, and LLM interaction.
 
 ## 🔎 Example Analysis
