@@ -120,6 +120,12 @@ The dashboard includes:
     
  It also provides analysis history and risk analytics for previously processed security events.
 
+ ### 🖥️ Dashboard Preview
+
+<p align="center">
+  <img src="docs/screenshots/dashboard.png" alt="SUN AI Dashboard" width="900">
+</p>
+
 ## 📄 PDF Security Reports
 
     SUN AI can generate a professional PDF report from an analysis.
