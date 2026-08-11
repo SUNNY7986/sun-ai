@@ -371,6 +371,8 @@ def analyze_log(
 async def upload_log(
     file: UploadFile = File(...),
 ):
+    MAX_LOG_SIZE = 2 * 1024 * 1024  # 2 MB
+    ALLOWED_EXTENSIONS = {".log", ".txt"}
 
     if not file.filename:
         raise HTTPException(
@@ -378,11 +380,30 @@ async def upload_log(
             detail="No file selected.",
         )
 
+    # Get a safe filename
+    safe_filename = os.path.basename(file.filename)
+
+    # Check file extension
+    extension = os.path.splitext(safe_filename)[1].lower()
+
+    if extension not in ALLOWED_EXTENSIONS:
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid file type. Please upload a .log or .txt file.",
+        )
+
     db = SessionLocal()
 
     try:
+        # Read only slightly more than the maximum allowed size
+        content = await file.read(MAX_LOG_SIZE + 1)
 
-        content = await file.read()
+        # Prevent oversized uploads
+        if len(content) > MAX_LOG_SIZE:
+            raise HTTPException(
+                status_code=413,
+                detail="File too large. Maximum allowed size is 2 MB.",
+            )
 
         if not content:
             raise HTTPException(
@@ -409,7 +430,7 @@ async def upload_log(
         )
 
         analysis = Analysis(
-            filename=file.filename,
+            filename=safe_filename,
 
             risk_level=result["risk_level"],
 
@@ -447,7 +468,7 @@ async def upload_log(
         return {
             "status": "success",
             "id": analysis.id,
-            "filename": file.filename,
+            "filename": safe_filename,
             "analysis": result,
         }
 
@@ -456,7 +477,6 @@ async def upload_log(
         raise
 
     except Exception as e:
-
         db.rollback()
 
         raise HTTPException(
@@ -466,7 +486,6 @@ async def upload_log(
 
     finally:
         db.close()
-
 
 # ==========================================================
 # Analysis History
