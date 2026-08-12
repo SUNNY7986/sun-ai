@@ -37,6 +37,8 @@
 | 🤖 AI Threat Analysis | Uses an LLM to analyze security events |
 | 🔍 Threat Classification | Identifies potential attack types |
 | 📚 RAG | Retrieves relevant cybersecurity knowledge |
+| 🛡️ Prompt Injection Defense | Detects and redacts instruction-like content in untrusted security logs |
+| 🔒 Upload Security | Validates file type, UTF-8 encoding, empty files, and 2 MB upload limits |
 | 🧠 AI Agents | Uses specialized analysis components |
 | 📊 Risk Analysis | Calculates risk and severity information |
 | 📈 Dashboard | Displays security statistics and analytics |
@@ -342,6 +344,18 @@ The dashboard includes:
 
     Sensitive configuration is intentionally excluded from the repository.
 
+    SUN AI treats uploaded security logs as untrusted input.
+
+    Security controls include:
+
+    - Prompt-injection detection and redaction
+    - Safe filename handling
+    - .log and .txt file validation
+    - UTF-8 validation
+    - 2 MB upload size limit
+    - Protection against instruction-like content in logs
+    - Sensitive configuration excluded through .gitignore
+
     Ignored files include:
 
     .env
@@ -379,8 +393,7 @@ The dashboard includes:
 
     Real-time log monitoring
     SIEM integration
-    MITRE ATT&CK enrichment
-    Threat intelligence APIs
+    Advanced MITRE ATT&CK enrichment    Threat intelligence APIs
     Real-time alerts
     Email / Slack notifications
     Cloud deployment
