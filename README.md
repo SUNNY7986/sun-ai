@@ -6,7 +6,7 @@
 
     The goal of the project is to combine AI, cybersecurity, machine learning, RAG, and backend engineering into one practical security analysis system.
 
- ## 🚀 What is SUN AI?
+ ##  What is SUN AI?
 
     Security logs often contain large amounts of information that can be difficult to investigate manually.
 
@@ -30,7 +30,7 @@
         ↓
     PDF Security Report
 
-## ✨ Features
+##  Features
 
    | Feature | Description |
 | --- | --- |
@@ -48,50 +48,50 @@
 | ⚡ FastAPI | Provides the backend REST API |
 | ⚛️ React | Provides the web dashboard |
 
+##  AI Analysis
 
-## 🧠 AI Analysis
-
-SUN AI processes security logs through a multi-stage analysis pipeline.
+    SUN AI processes security logs through a multi-stage analysis pipeline.
 
 <div align="center">
 
 <pre>
-                    Security Log
-                         ↓
-                 ┌───────────────┐
-                 │  Log Upload   │
-                 └───────────────┘
-                         ↓
-                 ┌───────────────┐
-                 │ Log Processing│
-                 └───────────────┘
-                         ↓
-              ┌─────────────────────┐
-              │ Threat Classification│
-              └─────────────────────┘
-                         ↓
-                 ┌───────────────┐
-                 │ RAG Retrieval │
-                 └───────────────┘
-                         ↓
-                 ┌───────────────┐
-                 │  AI Analysis  │
-                 └───────────────┘
-                         ↓
-                 ┌───────────────┐
-                 │ Risk Analysis │
-                 └───────────────┘
-                         ↓
-                 ┌───────────────┐
-                 │ PDF Security  │
-                 │    Report     │
-                 └───────────────┘
+                         Security Log
+                              ↓
+                    ┌─────────────────────┐
+                    │     Log Upload      │
+                    └─────────────────────┘
+                              ↓
+                    ┌─────────────────────┐
+                    │   Log Processing    │
+                    └─────────────────────┘
+                              ↓
+                    ┌─────────────────────┐
+                    │Threat Classification│
+                    └─────────────────────┘
+                              ↓
+                    ┌─────────────────────┐
+                    │    RAG Retrieval    │
+                    └─────────────────────┘
+                              ↓
+                    ┌─────────────────────┐
+                    │     AI Analysis     │
+                    └─────────────────────┘
+                              ↓
+                    ┌─────────────────────┐
+                    │    Risk Analysis    │
+                    └─────────────────────┘
+                              ↓
+                    ┌─────────────────────┐
+                    │   PDF Security      │
+                    │      Report         │
+                    └─────────────────────┘
 </pre>
 
 </div>
-The backend contains separate components for threat classification, security analysis, severity assessment, risk scoring, recommendations, reporting, embeddings, RAG, and LLM interaction.
 
-## 🔎 Example Analysis
+    The backend contains separate components for threat classification, security analysis, severity assessment, risk scoring, recommendations, reporting, embeddings, RAG, and LLM interaction.
+
+##  Example Analysis
 
     For example, a log containing repeated failed login attempts followed by a successful login can be analyzed as suspicious authentication activity.
 
@@ -104,7 +104,7 @@ The backend contains separate components for threat classification, security ana
 
     The system also provides a written summary and recommended actions for investigating the incident.
 
-    ## 📊 Dashboard
+##  Dashboard
 
     The frontend provides a security dashboard where analysis results can be viewed in a structured format.
 
@@ -122,27 +122,22 @@ The backend contains separate components for threat classification, security ana
 
     It also provides analysis history and risk analytics for previously processed security events.
 
-    ### 🖥️ Threat Analysis Screenshots
+    ##  Threat Analysis Screenshots
 
-    #### 🔥 Brute Force Detection
+    ###  Brute Force Detection
 
-    <p align="center">
-    <img src="docs/screenshots/brute-force-analysis.png" alt="SUN AI Brute Force Analysis" width="900">
-    </p>
+    ![SUN AI Brute Force Analysis](docs/screenshots/brute-force-analysis.png)
 
-    #### 💉 SQL Injection Detection
+    ###  SQL Injection Detection
 
-    <p align="center">
-    <img src="docs/screenshots/sql-injection-analysis.png" alt="SUN AI SQL Injection Analysis" width="900">
-    </p>
+    ![SUN AI SQL Injection Analysis](docs/screenshots/sql-injection-analysis.png)
 
-    #### 🛡️ Prompt Injection Defense
+    ###  Prompt Injection Defense
 
-    <p align="center">
-    <img src="docs/screenshots/prompt-injection-defense.png" alt="SUN AI Prompt Injection Defense" width="900">
-    </p>
+    ![SUN AI Prompt Injection Defense](docs/screenshots/prompt-injection-defense.png)
 
-## 📄 PDF Security Reports
+
+##  PDF Security Reports
 
     SUN AI can generate a professional PDF report from an analysis.
 
@@ -159,7 +154,7 @@ The backend contains separate components for threat classification, security ana
 
     This makes the analysis easier to share or store as an incident record.
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
     Backend :
 
@@ -197,7 +192,7 @@ The backend contains separate components for threat classification, security ana
         Docker Compose
 
 
-## 🏗️ Project Architecture
+##  Project Architecture
 
         SUN AI
         │
@@ -228,7 +223,7 @@ The backend contains separate components for threat classification, security ana
             ├── Backend Container
             └── Frontend Container
 
-## 📁 Project Structure
+##  Project Structure
 
         SUN AI/
         │
@@ -279,7 +274,7 @@ The backend contains separate components for threat classification, security ana
         └── requirements.txt
 
 
-## ⚙️ Getting Started
+##  Getting Started
 
     Requirements
  
@@ -291,7 +286,7 @@ The backend contains separate components for threat classification, security ana
         Groq API Key
 
 
-## 🔐 Environment Setup
+##  Environment Setup
 
     Create a .env file in the project root.
 
@@ -304,7 +299,7 @@ The backend contains separate components for threat classification, security ana
     .env.example
 
 
-## 🐳 Run with Docker
+##  Run with Docker
 
     From the project directory: docker compose up --build
 
@@ -318,7 +313,7 @@ The backend contains separate components for threat classification, security ana
 
 
 
-## 💻 Run Without Docker
+##  Run Without Docker
 
     Backend :  python -m venv venv
 
@@ -336,7 +331,7 @@ The backend contains separate components for threat classification, security ana
     npm run dev
 
 
-## 🔌 API
+##  API
 
         Endpoint	          Method	            Purpose
 
@@ -354,7 +349,7 @@ The backend contains separate components for threat classification, security ana
     Swagger documentation: http://localhost:8000/docs
 
 
-## 🔐 Security
+##  Security
 
     Sensitive configuration is intentionally excluded from the repository.
 
@@ -382,7 +377,7 @@ The backend contains separate components for threat classification, security ana
 
     The real API key should always remain in the local .env file.
 
-## 🧪 Testing
+##  Testing
 
     The main workflow is:
 
@@ -403,7 +398,7 @@ The backend contains separate components for threat classification, security ana
     Download PDF Report
 
 
-## 🔮 Future Improvements
+##  Future Improvements
 
     Real-time log monitoring
     SIEM integration
@@ -416,13 +411,13 @@ The backend contains separate components for threat classification, security ana
     More advanced ML threat detection
 
 
-## 🤖 Development Note
+##  Development Note
 
     SUN AI was developed with AI-assisted programming and debugging.
 
     AI tools were used during development to help with implementation, troubleshooting and learning. The application was integrated, tested and run as a complete system during development.
 
-## 👨‍💻 Project 
+##  Project 
 
     SUN AI
 
@@ -439,7 +434,7 @@ The backend contains separate components for threat classification, security ana
     Containerization
 
 
-## ⭐ Why SUN AI? 
+##  Why SUN AI? 
 
     The project combines:
 
