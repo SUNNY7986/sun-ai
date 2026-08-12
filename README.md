@@ -104,24 +104,24 @@ The backend contains separate components for threat classification, security ana
 
     The system also provides a written summary and recommended actions for investigating the incident.
 
-## 📊 Dashboard
+    ## 📊 Dashboard
 
-The frontend provides a security dashboard where analysis results can be viewed in a structured format.
+    The frontend provides a security dashboard where analysis results can be viewed in a structured format.
 
-The dashboard includes:
+    The dashboard includes:
 
- AI Threat Analysis
- Risk Level
- Attack Type
- Confidence
- Severity Score
- Summary
- Reasoning
- Recommendations
- Next Steps
-    
- It also provides analysis history and risk analytics for previously processed security events.
- 
+    - AI Threat Analysis
+    - Risk Level
+    - Attack Type
+    - Confidence
+    - Severity Score
+    - Summary
+    - Reasoning
+    - Recommendations
+    - Next Steps
+
+    It also provides analysis history and risk analytics for previously processed security events.
+
     ### 🖥️ Threat Analysis Screenshots
 
     #### 🔥 Brute Force Detection
