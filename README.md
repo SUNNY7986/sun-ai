@@ -48,48 +48,48 @@
 | ⚡ FastAPI | Provides the backend REST API |
 | ⚛️ React | Provides the web dashboard |
 
-##  AI Analysis
+## AI Analysis
 
-    SUN AI processes security logs through a multi-stage analysis pipeline.
+SUN AI processes security logs through a multi-stage analysis pipeline.
 
 <div align="center">
 
 <pre>
-                         Security Log
-                              ↓
-                    ┌─────────────────────┐
-                    │     Log Upload      │
-                    └─────────────────────┘
-                              ↓
-                    ┌─────────────────────┐
-                    │   Log Processing    │
-                    └─────────────────────┘
-                              ↓
-                    ┌─────────────────────┐
-                    │Threat Classification│
-                    └─────────────────────┘
-                              ↓
-                    ┌─────────────────────┐
-                    │    RAG Retrieval    │
-                    └─────────────────────┘
-                              ↓
-                    ┌─────────────────────┐
-                    │     AI Analysis     │
-                    └─────────────────────┘
-                              ↓
-                    ┌─────────────────────┐
-                    │    Risk Analysis    │
-                    └─────────────────────┘
-                              ↓
-                    ┌─────────────────────┐
-                    │   PDF Security      │
-                    │      Report         │
-                    └─────────────────────┘
+                        Security Log
+                            ↓
+                ┌─────────────────────┐
+                │     Log Upload      │
+                └─────────────────────┘
+                            ↓
+                ┌─────────────────────┐
+                │   Log Processing    │
+                └─────────────────────┘
+                            ↓
+                ┌─────────────────────┐
+                │Threat Classification│
+                └─────────────────────┘
+                            ↓
+                ┌─────────────────────┐
+                │    RAG Retrieval    │
+                └─────────────────────┘
+                            ↓
+                ┌─────────────────────┐
+                │     AI Analysis     │
+                └─────────────────────┘
+                            ↓
+                ┌─────────────────────┐
+                │    Risk Analysis    │
+                └─────────────────────┘
+                            ↓
+                ┌─────────────────────┐
+                │   PDF Security      │
+                │      Report         │
+                └─────────────────────┘
 </pre>
 
 </div>
 
-    The backend contains separate components for threat classification, security analysis, severity assessment, risk scoring, recommendations, reporting, embeddings, RAG, and LLM interaction.
+The backend contains separate components for threat classification, security analysis, severity assessment, risk scoring, recommendations, reporting, embeddings, RAG, and LLM interaction.
 
 ##  Example Analysis
 
@@ -104,37 +104,37 @@
 
     The system also provides a written summary and recommended actions for investigating the incident.
 
-##  Dashboard
+## Dashboard
 
-    The frontend provides a security dashboard where analysis results can be viewed in a structured format.
+The frontend provides a security dashboard where analysis results can be viewed in a structured format.
 
-    The dashboard includes:
+The dashboard includes:
 
-    - AI Threat Analysis
-    - Risk Level
-    - Attack Type
-    - Confidence
-    - Severity Score
-    - Summary
-    - Reasoning
-    - Recommendations
-    - Next Steps
+- AI Threat Analysis
+- Risk Level
+- Attack Type
+- Confidence
+- Severity Score
+- Summary
+- Reasoning
+- Recommendations
+- Next Steps
 
-    It also provides analysis history and risk analytics for previously processed security events.
+It also provides analysis history and risk analytics for previously processed security events.
 
-    ##  Threat Analysis Screenshots
+### Threat Analysis Screenshots
 
-    ###  Brute Force Detection
+#### Brute Force Detection
 
-    ![SUN AI Brute Force Analysis](docs/screenshots/brute-force-analysis.png)
+<img src="docs/screenshots/brute-force-analysis.png" alt="SUN AI Brute Force Analysis" width="900">
 
-    ###  SQL Injection Detection
+#### SQL Injection Detection
 
-    ![SUN AI SQL Injection Analysis](docs/screenshots/sql-injection-analysis.png)
+<img src="docs/screenshots/sql-injection-analysis.png" alt="SUN AI SQL Injection Analysis" width="900">
 
-    ###  Prompt Injection Defense
+#### Prompt Injection Defense
 
-    ![SUN AI Prompt Injection Defense](docs/screenshots/prompt-injection-defense.png)
+<img src="docs/screenshots/prompt-injection-defense.png" alt="SUN AI Prompt Injection Defense" width="900">
 
 
 ##  PDF Security Reports
