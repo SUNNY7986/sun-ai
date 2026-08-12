@@ -121,12 +121,26 @@ The dashboard includes:
  Next Steps
     
  It also provides analysis history and risk analytics for previously processed security events.
+ 
+    ### 🖥️ Threat Analysis Screenshots
 
- ### 🖥️ Dashboard Preview
+    #### 🔥 Brute Force Detection
 
-<p align="center">
-  <img src="docs/screenshots/dashboard.png" alt="SUN AI Dashboard" width="900">
-</p>
+    <p align="center">
+    <img src="docs/screenshots/brute-force-analysis.png" alt="SUN AI Brute Force Analysis" width="900">
+    </p>
+
+    #### 💉 SQL Injection Detection
+
+    <p align="center">
+    <img src="docs/screenshots/sql-injection-analysis.png" alt="SUN AI SQL Injection Analysis" width="900">
+    </p>
+
+    #### 🛡️ Prompt Injection Defense
+
+    <p align="center">
+    <img src="docs/screenshots/prompt-injection-defense.png" alt="SUN AI Prompt Injection Defense" width="900">
+    </p>
 
 ## 📄 PDF Security Reports
 
