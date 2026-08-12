@@ -17,10 +17,6 @@ classifier = ThreatClassifier()
 severity_agent = SeverityAgent()
 
 
-def security_node(state: AgentState):
-    return analyze_security(state)
-
-
 def threat_node(state: AgentState):
     threat = classifier.classify(state["query"])
 
@@ -28,6 +24,10 @@ def threat_node(state: AgentState):
         **state,
         "threat": threat
     }
+
+
+def security_node(state: AgentState):
+    return analyze_security(state)
 
 
 def severity_node(state: AgentState):
@@ -41,14 +41,14 @@ def severity_node(state: AgentState):
 
 builder = StateGraph(AgentState)
 
-builder.add_node("Security", security_node)
 builder.add_node("Threat", threat_node)
+builder.add_node("Security", security_node)
 builder.add_node("Severity", severity_node)
 
-builder.set_entry_point("Security")
+builder.set_entry_point("Threat")
 
-builder.add_edge("Security", "Threat")
-builder.add_edge("Threat", "Severity")
+builder.add_edge("Threat", "Security")
+builder.add_edge("Security", "Severity")
 builder.add_edge("Severity", END)
 
 graph = builder.compile()
@@ -58,7 +58,10 @@ if __name__ == "__main__":
 
     result = graph.invoke(
         {
-            "query": "Multiple failed login attempts from one IP address."
+            "query": "Multiple failed login attempts from one IP address.",
+            "response": "",
+            "threat": "",
+            "severity": ""
         }
     )
 

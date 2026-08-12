@@ -3,10 +3,10 @@ from typing import TypedDict
 
 from app.ai.pipelines.rag_pipeline import RAGPipeline
 
-
 class AgentState(TypedDict):
     query: str
     response: str
+    threat: str
 
 
 rag = RAGPipeline()
@@ -14,11 +14,15 @@ rag = RAGPipeline()
 
 def analyze_security(state: AgentState):
 
-    answer = rag.analyze(state["query"])
+    answer = rag.analyze(
+        state["query"],
+        state.get("threat")
+    )
 
     return {
         "query": state["query"],
-        "response": answer
+        "response": answer,
+        "threat": state.get("threat", "")
     }
 
 
@@ -37,7 +41,8 @@ if __name__ == "__main__":
 
     result = graph.invoke(
         {
-            "query": "Explain brute force attack."
+            "query": "Explain brute force attack.",
+            "threat": "Brute Force"
         }
     )
 

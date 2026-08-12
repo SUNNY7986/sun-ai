@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import json
 import os
-
+from app.security.input_security import sanitize_log
 from fastapi import (
     APIRouter,
     HTTPException,
@@ -425,9 +425,24 @@ async def upload_log(
                 detail="Uploaded log is empty.",
             )
 
+        # Security gate
+        sanitized_log, injection_detected = sanitize_log(log_text)
+
+        # Analyze only the sanitized log
         result = analyze_security_log(
-            log_text
+            sanitized_log
         )
+
+        # Preserve the security finding in the final response
+        if injection_detected:
+            result["prompt_injection_detected"] = True
+            result["security_alert"] = (
+                "Prompt injection detected. "
+                "Instruction-like content was redacted before AI analysis."
+            )
+        else:
+            result["prompt_injection_detected"] = False
+            result["security_alert"] = ""
 
         analysis = Analysis(
             filename=safe_filename,

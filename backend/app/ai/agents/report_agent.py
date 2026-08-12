@@ -19,25 +19,45 @@ class ReportAgent:
 
     def generate_report(self, incident):
 
+        # -----------------------------------------
+        # 1. Classify the threat FIRST
+        # -----------------------------------------
+        threat = self.classifier.classify(incident)
+
+        # -----------------------------------------
+        # 2. Run security/RAG analysis using
+        #    the authoritative threat classification
+        # -----------------------------------------
         security = analyze_security(
             {
                 "query": incident,
-                "response": ""
+                "response": "",
+                "threat": threat
             }
         )
 
-        threat = self.classifier.classify(incident)
-
+        # -----------------------------------------
+        # 3. Calculate severity
+        # -----------------------------------------
         severity = self.severity.predict_severity(incident)
 
+        # -----------------------------------------
+        # 4. Calculate risk score
+        # -----------------------------------------
         risk_score = self.risk.calculate_score(severity)
 
+        # -----------------------------------------
+        # 5. Generate recommendations
+        # -----------------------------------------
         recommendations = self.recommender.recommend(threat)
 
+        # -----------------------------------------
+        # 6. MITRE mapping
+        # -----------------------------------------
         mitre = self.mitre.get_mapping(threat)
 
         # -----------------------------------------
-        # Convert new AI output to old frontend format
+        # Convert AI output to frontend format
         # -----------------------------------------
 
         if isinstance(severity, str):
@@ -53,34 +73,51 @@ class ReportAgent:
 
         return {
 
-            # -------- Old frontend fields --------
+            # -------- Frontend fields --------
 
             "risk_level": risk_level,
+
             "attack_type": threat,
+
             "severity_score": risk_score,
+
             "confidence": confidence,
+
             "reasoning": security["response"],
+
             "affected_assets": [],
+
             "iocs": [],
+
             "summary": security["response"],
+
             "recommendations": recommendations,
+
             "next_steps": [
                 "Review the incident.",
                 "Investigate affected systems.",
                 "Apply recommended mitigations."
             ],
 
-            # -------- New AI fields --------
+            # -------- AI fields --------
 
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "timestamp": datetime.now().strftime(
+                "%Y-%m-%d %H:%M:%S"
+            ),
+
             "incident": incident,
+
             "threat": threat,
+
             "severity": severity,
+
             "risk_score": risk_score,
+
             "mitre": {
                 "technique": mitre["technique"],
                 "tactic": mitre["tactic"]
             },
+
             "analysis": security["response"]
         }
 
